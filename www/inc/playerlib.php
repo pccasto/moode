@@ -348,9 +348,17 @@ function genFlatList($sock) {
 				$item = count($flat);
 				$flat[$item][$element] = $value;
 			}
-			// screen out dir and pl from listallinfo
-			elseif ($element == 'directory' || $element == 'playlist') {
-				++$i;			
+			// screen out dir from listallinfo, and skip next 'Last-Modified' line
+			elseif ($element == 'directory') {
+				++$i;
+			}
+			// screen out pl from listallinfo, and skip next 'Last-Modified' line
+			// except, an embedded flac playlist does not have a Last-Modified...
+			elseif ($element == 'playlist') {
+				$ext = pathinfo($value, PATHINFO_EXTENSION);
+				if ($ext != 'flac') {
+					++$i;
+				}
 			}
 			else {
 				$flat[$item][$element] = $value;
