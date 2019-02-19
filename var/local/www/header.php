@@ -45,18 +45,20 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-	
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="cssw/bootstrap-select.css" rel="stylesheet">
-	<link href="cssw/flat-ui.css" rel="stylesheet">
-	<link href="css/fontawesome-moode.css" rel="stylesheet">
-	<?php if ($section == 'index') { ?>
-		<link href="css/jquery.countdown.css" rel="stylesheet">
-	<?php } ?>
-	<link href="css/jquery.pnotify.default.css" rel="stylesheet">
-	<link href="cssw/panels.css" rel="stylesheet">
-	<link href="css/moode.css" rel="stylesheet">
-	
+
+<!-- versioned resources -->
+	<?php
+	versioned_resource ('css/bootstrap.min.css');
+	versioned_resource ('cssw/bootstrap-select.css');
+	versioned_resource ('cssw/flat-ui.css');
+	versioned_resource ('css/fontawesome-moode.css');
+	if ($section == 'index') {
+		versioned_resource ('css/jquery.countdown.css');
+	}
+	versioned_resource ('css/jquery.pnotify.default.css');
+	versioned_resource ('cssw/panels.css');
+	versioned_resource ('css/moode.css');
+	?>
 	<!-- Apple -->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" sizes="180x180" href="/v5-apple-touch-icon.png">
